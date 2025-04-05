@@ -7,18 +7,18 @@ This MCP server provides tools to interact with Google Flights data using the bu
 Provides the following MCP tools:
 
 *   **`get_flights_on_date`**: Fetches available one-way flights for a specific date between two airports.
-    *   Args: `origin` (str), `destination` (str), `date` (str, YYYY-MM-DD), `adults` (int, optional), `seat_type` (str, optional).
+    *   Args: `origin` (str), `destination` (str), `date` (str, YYYY-MM-DD), `adults` (int, optional), `seat_type` (str, optional), `return_cheapest_only` (bool, optional, default `False`).
 *   **`get_round_trip_flights`**: Fetches available round-trip flights for specific departure and return dates.
-    *   Args: `origin` (str), `destination` (str), `departure_date` (str, YYYY-MM-DD), `return_date` (str, YYYY-MM-DD), `adults` (int, optional), `seat_type` (str, optional).
-*   **`find_cheapest_flights_in_range`**: Finds the cheapest round-trip flight within a specified date range.
-    *   Args: `origin` (str), `destination` (str), `start_date_str` (str, YYYY-MM-DD), `end_date_str` (str, YYYY-MM-DD), `min_stay_days` (int, optional), `max_stay_days` (int, optional), `adults` (int, optional), `seat_type` (str, optional).
+    *   Args: `origin` (str), `destination` (str), `departure_date` (str, YYYY-MM-DD), `return_date` (str, YYYY-MM-DD), `adults` (int, optional), `seat_type` (str, optional), `return_cheapest_only` (bool, optional, default `False`).
+*   **`find_all_flights_in_range`**: Finds available round-trip flights within a specified date range. Can optionally return only the cheapest flight found for each date pair.
+    *   Args: `origin` (str), `destination` (str), `start_date_str` (str, YYYY-MM-DD), `end_date_str` (str, YYYY-MM-DD), `min_stay_days` (int, optional), `max_stay_days` (int, optional), `adults` (int, optional), `seat_type` (str, optional), `return_cheapest_only` (bool, optional, default `False`).
 
 ## Setup
 
 1.  **Clone the repository:**
     ```bash
-    git clone <repository-url>
-    cd flight_mcp_server
+    git clone https://github.com/opspawn/Google-Flights-MCP-Server.git
+    cd Google-Flights-MCP-Server
     ```
 2.  **Create a virtual environment (recommended):**
     ```bash
@@ -71,4 +71,4 @@ Add the server to your MCP client's configuration file. Example for `cline_mcp_s
 
 *   This server bundles the `fast_flights` library (originally from [https://github.com/AWeirdDev/flights](https://github.com/AWeirdDev/flights)) for its core flight scraping functionality. Please refer to the included `LICENSE` file for its terms.
 *   Flight scraping can sometimes be unreliable or slow depending on Google Flights changes and network conditions. The tools include basic error handling.
-*   The `find_cheapest_flights_in_range` tool can be resource-intensive as it checks many date combinations.
+*   The `find_all_flights_in_range` tool can be resource-intensive as it checks many date combinations.
