@@ -2,6 +2,8 @@
 
 This MCP server provides tools to interact with Google Flights data using the bundled `fast_flights` library.
 
+Modified to use `SSE` instead of `stdio` transport.
+
 ## Features
 
 Provides the following MCP tools:
