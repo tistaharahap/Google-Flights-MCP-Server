@@ -1,11 +1,9 @@
-
 #!/usr/bin/env python
-import asyncio
-import json
 import datetime
+import json
 import sys
-import os
-from typing import Any, Optional, Dict
+from typing import Optional
+
 
 # --- fast_flights should now be in the same directory ---
 try:
@@ -397,4 +395,4 @@ async def find_all_flights_in_range( # Renamed function
 # --- Run the server ---
 if __name__ == "__main__":
     # Run the server using stdio transport
-    mcp.run(transport='stdio')
+    mcp.run(transport='sse')
