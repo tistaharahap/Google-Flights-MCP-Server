@@ -21,7 +21,7 @@ COPY requirements.txt .
 
 # Install Python dependencies using uv
 RUN uv pip install --system -r requirements.txt
-RUN playwright install
+RUN playwright install --with-deps
 
 # Expose port (if needed for SSE transport)
 EXPOSE 8000
